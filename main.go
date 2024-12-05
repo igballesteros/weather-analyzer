@@ -1,21 +1,9 @@
 package main
 
 import (
-	"encoding/csv"
 	"fmt"
 	"log"
-	"os"
 )
-
-func openFile(fileName string) (file *os.File, err error) {
-
-	return os.Open(fileName)
-}
-
-// func remove(records []string) []string {
-
-// 	return records
-// }
 
 func main() {
 
@@ -31,12 +19,15 @@ func main() {
 	// defer function runs before the function finishes
 	defer file.Close()
 
-	reader := csv.NewReader(file)
-
-	records, err := reader.ReadAll()
+	records, err := readFile(file)
 
 	if err != nil {
 		fmt.Println("error reading contents")
 	}
 
+	records = clean(records)
+
+	for _, element := range records {
+		fmt.Println(element)
+	}
 }
