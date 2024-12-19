@@ -14,7 +14,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("File opened")
 
 	// defer function runs before the function finishes
 	defer file.Close()
@@ -26,8 +25,4 @@ func main() {
 	}
 
 	records = clean(records)
-
-	for _, element := range records {
-		fmt.Println(element)
-	}
 }

@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/csv"
-	"fmt"
 	"os"
 )
 
@@ -29,8 +28,6 @@ func clean(records [][]string) [][]string {
 	for i, element := range indexSlice {
 		records = removeEmptyDates(records, element-1*i)
 	}
-
-	fmt.Println(records)
 
 	return records
 }
